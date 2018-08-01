@@ -1,32 +1,28 @@
-package cordova-plugin-pgyer;
+package cn.x1ongzhu.pgyer;
 
+import android.util.Log;
+
+import com.pgyersdk.update.PgyUpdateManager;
+
+import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CallbackContext;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.apache.cordova.CordovaWebView;
 
 /**
  * This class echoes a string called from JavaScript.
  */
 public class pgyer extends CordovaPlugin {
-
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("coolMethod")) {
-            String message = args.getString(0);
-            this.coolMethod(message, callbackContext);
-            return true;
-        }
-        return false;
-    }
-
-    private void coolMethod(String message, CallbackContext callbackContext) {
-        if (message != null && message.length() > 0) {
-            callbackContext.success(message);
-        } else {
-            callbackContext.error("Expected one non-empty string argument.");
-        }
+    public void initialize(final CordovaInterface cordova, CordovaWebView webView) {
+        super.initialize(cordova, webView);
+        cordova.getThreadPool().execute(new Runnable() {
+            public void run() {
+                boolean force = preferences.getBoolean("forceUpdate", false);
+                Log.d("forceUpdate", force + "");
+                PgyUpdateManager.setIsForced(force);
+                PgyUpdateManager.register(cordova.getActivity());
+            }
+        });
     }
 }

@@ -1,0 +1,21 @@
+{
+    "name": "cordova-plugin-pgyer",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/x1ongzhu/cordova-plugin-pgyer.git"
+    },
+    "keywords": ["cordova"],
+    "author": "x1ongzhu",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/x1ongzhu/cordova-plugin-pgyer/issues"
+    },
+    "homepage": "https://github.com/x1ongzhu/cordova-plugin-pgyer#readme",
+    "cordova": {
+        "id": "cordova-plugin-pgyer",
+        "platforms": ["android"]
+    }
+}

@@ -1,2 +1,30 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-pgyer" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>pgyer</name><js-module name="pgyer" src="www/pgyer.js"><clobbers target="cordova.plugins.pgyer" /></js-module><platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="pgyer"><param name="android-package" value="cordova-plugin-pgyer.pgyer" /></feature></config-file><config-file parent="/*" target="AndroidManifest.xml"></config-file><source-file src="src/android/pgyer.java" target-dir="src/cordova-plugin-pgyer/pgyer" /></platform></plugin>
+<plugin id="cordova-plugin-pgyer" version="1.0.0" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>pgyer</name>
+    <js-module name="pgyer" src="www/pgyer.js">
+        <clobbers target="cordova.plugins.pgyer" />
+    </js-module>
+    <preference name="APP_ID" />
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="pgyer">
+                <param name="android-package" value="cn.x1ongzhu.pgyer.pgyer" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name="PGYER_APPID" android:value="$APP_ID" />
+        </config-file>
+        <source-file src="src/android/pgyer_sdk_android_2.8.1.jar" target-dir="libs"/>
+        <source-file src="src/android/pgyer.java" target-dir="src/cn/x1ongzhu/pgyer" />
+    </platform>
+</plugin>
