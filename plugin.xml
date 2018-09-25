@@ -24,7 +24,8 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data android:name="PGYER_APPID" android:value="$APP_ID" />
         </config-file>
-        <source-file src="src/android/pgyer_sdk_android_2.8.1.jar" target-dir="libs"/>
+        <!-- <source-file src="src/android/pgyer_sdk_android_2.8.1.jar" target-dir="libs"/> -->
+        <source-file src="src/android/pgyer_sdk_3.0.1.jar" target-dir="libs"/>
         <source-file src="src/android/pgyer.java" target-dir="src/cn/x1ongzhu/pgyer" />
     </platform>
 </plugin>
