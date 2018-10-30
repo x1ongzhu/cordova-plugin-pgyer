@@ -20,8 +20,11 @@ public class pgyer extends CordovaPlugin {
             public void run() {
                 boolean force = preferences.getBoolean("forceUpdate", false);
                 Log.d("forceUpdate", force + "");
-                PgyUpdateManager.setIsForced(force);
-                PgyUpdateManager.register(cordova.getActivity());
+                new PgyUpdateManager.Builder()
+                        .setForced(force)                //设置是否强制更新
+                        .setUserCanRetry(true)         //失败后是否提示重新下载
+                        .setDeleteHistroyApk(false)     // 检查更新前是否删除本地历史 Apk， 默认为true
+                        .register();
             }
         });
     }
