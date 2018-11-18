@@ -1,0 +1,8 @@
+// repositories {    
+//     flatDir {
+//         dirs 'src/main/libs'
+//     }
+// }
+dependencies {
+    implementation files('src/main/libs/pgyer_sdk_3.0.1.jar')
+}

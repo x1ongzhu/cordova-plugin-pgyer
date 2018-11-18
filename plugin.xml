@@ -27,5 +27,6 @@
         <!-- <source-file src="src/android/pgyer_sdk_android_2.8.1.jar" target-dir="libs"/> -->
         <source-file src="src/android/pgyer_sdk_3.0.1.jar" target-dir="libs"/>
         <source-file src="src/android/pgyer.java" target-dir="src/cn/x1ongzhu/pgyer" />
+        <framework src="src/android/pgyer.gradle" custom="true" type="gradleReference"/>
     </platform>
 </plugin>
