@@ -4,5 +4,5 @@
 //     }
 // }
 dependencies {
-    implementation files('src/main/libs/pgyer_sdk_3.0.1.jar')
+    implementation files('libs/pgyer_sdk_3.0.1.jar')
 }
