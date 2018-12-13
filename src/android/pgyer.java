@@ -52,7 +52,7 @@ public class pgyer extends CordovaPlugin {
     private void checkUpdate() {
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
-                boolean force = preferences.getBoolean("forceUpdate", false);
+                boolean force = preferences.getBoolean("forceUpdate", true);
                 Log.d("forceUpdate", force + "");
                 new PgyUpdateManager.Builder()
                         .setForced(force)                //设置是否强制更新
